@@ -1,4 +1,4 @@
-import mongoose, {Schema,model} from 'mongoose'
+import Mysql, {Schema,model} from 'Mysql'
 import bcrypt from "bcryptjs"
 
 const pacienteSchema = new Schema({
