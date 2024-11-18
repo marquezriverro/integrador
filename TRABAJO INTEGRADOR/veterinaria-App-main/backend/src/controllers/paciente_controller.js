@@ -7,7 +7,7 @@ import Tratamiento from "../models/Tratamiento.js"
 import { sendMailToPaciente } from "../config/nodemailer.js"
 
 
-import mongoose from "Mysql"
+import  Mysql from "Mysql"
 import generarJWT from "../helpers/crearJWT.js"
 
 
@@ -19,17 +19,17 @@ const loginPaciente = async(req,res)=>{
 
     if (Object.values(req.body).includes("")) return res.status(404).json({msg:"Lo sentimos, debes llenar todos los campos"})
 
-    const pacienteBDD = await Paciente.findOne({email})
+    const pacienteBD = await Paciente.findOne({email})
 
-    if(!pacienteBDD) return res.status(404).json({msg:"Lo sentimos, el usuario no se encuentra registrado"})
+    if(!pacienteBD) return res.status(404).json({msg:"Lo sentimos, el usuario no se encuentra registrado"})
 
     const verificarPassword = await pacienteBDD.matchPassword(password)
 
     if(!verificarPassword) return res.status(404).json({msg:"Lo sentimos, el password no es el correcto"})
 
-    const token = generarJWT(pacienteBDD._id,"paciente")
+    const token = generarJWT(pacienteBD._id,"paciente")
 
-	const {nombre,propietario,email:emailP,celular,convencional,_id} = pacienteBDD
+	const {nombre,propietario,email:emailP,celular,convencional,_id} = pacienteBD
 
     res.status(200).json({
         token,
@@ -49,14 +49,14 @@ const loginPaciente = async(req,res)=>{
 
 // Método para ver el perfil 
 const perfilPaciente =(req,res)=>{
-    delete req.pacienteBDD.ingreso
-    delete req.pacienteBDD.sintomas
-    delete req.pacienteBDD.salida
-    delete req.pacienteBDD.estado
-    delete req.pacienteBDD.veterinario
-    delete req.pacienteBDD.createdAt
-    delete req.pacienteBDD.updatedAt
-    delete req.pacienteBDD.__v
+    delete req.pacienteBD.ingreso
+    delete req.pacienteBD.sintomas
+    delete req.pacienteBD.salida
+    delete req.pacienteBD.estado
+    delete req.pacienteBD.veterinario
+    delete req.pacienteBD.createdAt
+    delete req.pacienteBD.updatedAt
+    delete req.pacienteBD.__v
     res.status(200).json(req.pacienteBDD)
 }
 
@@ -66,8 +66,8 @@ const perfilPaciente =(req,res)=>{
 
 
 const listarPacientes = async (req,res)=>{
-    if (req.pacienteBDD && "propietario" in req.pacienteBDD){
-        const pacientes = await Paciente.find(req.pacienteBDD._id).select("-salida -createdAt -updatedAt -__v").populate('veterinario','_id nombre apellido')
+    if (req.pacienteBD && "propietario" in req.pacienteBD){
+        const pacientes = await Paciente.find(req.pacienteBD._id).select("-salida -createdAt -updatedAt -__v").populate('veterinario','_id nombre apellido')
         res.status(200).json(pacientes)
     }
     else{
@@ -106,11 +106,11 @@ const registrarPaciente = async(req,res)=>{
     
     
     // Obtener el usuario en base al email
-    const verificarEmailBDD = await Paciente.findOne({email})
+    const verificarEmailBD = await Paciente.findOne({email})
 
 
     // Verificar si el paciente ya se encuentra registrado
-    if(verificarEmailBDD) return res.status(400).json({msg:"Lo sentimos, el email ya se encuentra registrado"})
+    if(verificarEmailBD) return res.status(400).json({msg:"Lo sentimos, el email ya se encuentra registrado"})
 
 
 
@@ -136,7 +136,7 @@ const registrarPaciente = async(req,res)=>{
     nuevoPaciente.veterinario=req.veterinarioBDD._id
 
 
-    // Guardar en BDD
+    // Guardar en BD
     await nuevoPaciente.save()
 
     // Presentar resultados
@@ -152,7 +152,7 @@ const actualizarPaciente = async(req,res)=>{
 
     if (Object.values(req.body).includes("")) return res.status(400).json({msg:"Lo sentimos, debes llenar todos los campos"})
 
-    if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(404).json({msg:`Lo sentimos, no existe el veterinario ${id}`});
+    if( !Mysql.Types.ObjectId.isValid(id) ) return res.status(404).json({msg:`Lo sentimos, no existe el veterinario ${id}`});
 
     await Paciente.findByIdAndUpdate(req.params.id,req.body)
 
@@ -171,7 +171,7 @@ const eliminarPaciente = async (req,res)=>{
 
     if (Object.values(req.body).includes("")) return res.status(400).json({msg:"Lo sentimos, debes llenar todos los campos"})
 
-    if( !mongoose.Types.ObjectId.isValid(id) ) return res.status(404).json({msg:`Lo sentimos, no existe el veterinario ${id}`})
+    if( !Mysql.Types.ObjectId.isValid(id) ) return res.status(404).json({msg:`Lo sentimos, no existe el veterinario ${id}`})
 
     const {salida} = req.body
 
