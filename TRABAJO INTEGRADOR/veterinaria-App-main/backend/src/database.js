@@ -2,7 +2,7 @@
 //Importar Mysql
 import Mysql from 'Mysql'
 
-const ATLAS_URI = "Mysql://localhost:300/"
+const ATLAS_URI = "Mysql://localhost:3000/"
 
 // Pertimitir que solo los campos definidos en el Schema sean almacenados en la BD
 Mysql.set('strictQuery', true)
