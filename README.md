@@ -1,4 +1,4 @@
-# Aplicación de Gestión Veterinaria - App 🐶😺
+# Aplicación de Gestión Veterinaria - App 🐶
 
  ES un sistema encargado de automatizar la gestión de una veterinaria y sus principales actores (veterinarios, pacientes y tratamientos). Este proyecto consta de dos componentes: 
 * #### Backend 
