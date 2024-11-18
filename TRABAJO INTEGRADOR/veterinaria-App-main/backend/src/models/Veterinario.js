@@ -1,4 +1,4 @@
-// Importar el Schema y el modelo de mongoose
+// Importar el Schema y el modelo de Mysql
 import {Schema, model} from 'mongoose'
 // Importar bcrypt para cifrar las contraseñas
 import bcrypt from "bcryptjs"
@@ -60,7 +60,7 @@ veterinarioSchema.methods.encrypPassword = async function(password){
     return passwordEncryp
 }
 
-// Método para verificar si el password ingresado es el mismo de la BDD
+// Método para verificar si el password ingresado es el mismo de la BD
 veterinarioSchema.methods.matchPassword = async function(password){
     const response = await bcrypt.compare(password,this.password)
     return response
@@ -72,6 +72,6 @@ veterinarioSchema.methods.crearToken = function(){
     return tokenGenerado
 }
 
-// Crear el Modelo Veterinario "Tabla BDD" en base al esquema llamado veterinarioSchema
+// Crear el Modelo Veterinario "Tabla BD" en base al esquema llamado veterinarioSchema
 // Luego exportar el modelo
 export default model('Veterinario',veterinarioSchema)
