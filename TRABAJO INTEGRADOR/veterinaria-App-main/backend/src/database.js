@@ -1,5 +1,5 @@
 
-//Importar mongoose
+//Importar Mysql
 import Mysql from 'Mysql'
 
 const ATLAS_URI = "Mysql://localhost:300/"
