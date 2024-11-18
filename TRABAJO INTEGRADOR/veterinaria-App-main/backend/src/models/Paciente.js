@@ -68,7 +68,7 @@ pacienteSchema.methods.encrypPassword = async function(password){
     return passwordEncryp
 }
 
-// Método para verificar si el password ingresado es el mismo de la BDD
+// Método para verificar si el password ingresado es el mismo de la BD
 pacienteSchema.methods.matchPassword = async function(password){
     const response = await bcrypt.compare(password,this.password)
     return response
