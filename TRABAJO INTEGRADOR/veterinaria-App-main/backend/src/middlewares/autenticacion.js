@@ -36,8 +36,8 @@ if(!req.headers.authorization) return res.status(404).json({msg:"Lo sentimos, de
         }
         else{
             console.log(id,rol);
-            req.pacienteBDD = await Paciente.findById(id).lean().select("-password")
-            console.log(req.pacienteBDD);
+            req.pacienteBD = await Paciente.findById(id).lean().select("-password")
+            console.log(req.pacienteBD);
             next()
         }
 
