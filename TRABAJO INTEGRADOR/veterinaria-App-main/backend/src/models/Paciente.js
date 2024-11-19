@@ -53,7 +53,7 @@ const pacienteSchema = new Schema({
         default:true
     },
     veterinario:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:Mysql.Schema.Types.ObjectId,
         ref:'Veterinario'
     }
 },{
