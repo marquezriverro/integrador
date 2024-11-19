@@ -1,10 +1,10 @@
 // Importar el Schema y el modelo de Mysql
-import {Schema, model} from 'mongoose'
+import {Schema, model} from 'Mysql'
 // Importar bcrypt para cifrar las contraseñas
 import bcrypt from "bcryptjs"
 
 
-// Crear el Schema "atributos de la tabla de la BDD"
+// Crear el Schema "atributos de la tabla de la BD"
 const veterinarioSchema = new Schema({
     nombre:{
         type:String,
