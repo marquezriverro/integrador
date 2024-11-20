@@ -1,0 +1,82 @@
+SELECT * FROM VETERINARIA.veterinario;
+
+CREATE TABLE  veterinario (
+  token INT ,
+  nombre NCHAR(30) ,
+  apellido VARCHAR(30) ,
+  direccion VARCHAR(20) ,
+  telefono TEXT(50) ,
+  PRIMARY KEY (token)
+  );
+
+SELECT * FROM VETERINARIA.PASIENTE;
+
+CREATE TABLE  PASIENTE (
+  tratamiento VARCHAR(20) NOT NULL,
+  NOMBRE VARCHAR(30) NULL,
+veterinario VARCHAR(50) NULL,
+  ingreso SMALLINT(6) NULL,
+ 
+  primary key (nombre),
+  
+  foreign key(nombre_)REFERENCES PASIENTE (nombre),
+  foreign key(token)REFERENCES token(veterinario
+  )
+  );
+ SELECT * FROM VETERINARIA.INGRESO;
+
+CREATE TABLE  ingreso (
+  sintoma INT (11),
+  INGRESO DATE ,
+  salida SMALLINT(6) ,
+  estado SMALLINT(6) ,
+  OBSERVACIONES TEXT(50) 
+  );
+  SELECT * FROM VETERINARIA.TRATAMIENTO;
+
+  
+  CREATE TABLE  TRATAMIENTO (
+  NOMBREa INT (11),
+  DESCRIPCION DATE ,
+  PRORIDAD SMALLINT(6) ,
+  ESTADO SMALLINT(6) ,
+  ACCIONES TEXT(50) 
+  );
+  SELECT * FROM VETERINARIA.veterinario;
+insert into veterinario values(122, "lucia",null);
+insert into veterinario  values(155, "ana",true);
+insert into  veterinario values(226, "frodo",true);
+insert into veterinario  values(332, " maria",null);
+insert into veterinario values(334, "gandalf",null);
+insert into veterinario values(449, "puchini", true);
+
+SELECT * FROM VETERINARIA.pasiente;
+insert into PASIENTE values("lola",null);
+insert into PASIENTE values("yak",null);
+insert into PASIENTE values("larry",null);
+insert into PASIENTE values("cartucho",null);
+insert into PASIENTE values("negro",null);
+insert into PASIENTE values("nacho",null);
+
+
+
+SELECT * FROM VETERINARIA.pasiente;
+insert into PASIENTE values("BAÑAR",null);
+insert into PASIENTE values("VACUNAR",null);
+insert into PASIENTE values("CORTE DE PELO",null);
+insert into PASIENTE values("FIEBRE",null);
+insert into PASIENTE values("VACUNACION",null);
+insert into PASIENTE values("DESPARACITACION",null);
+
+
+
+SELECT * FROM VETERINARIA.ingreso;
+insert into ingreso values(1,"1/11/2021", "1","2",null,"1884","449",null);
+insert into ingreso values(2, "2/11/2021","1","1",null,"1488","226",null);
+insert into ingreso values(3, "2/11/2021","2","4","falta completar carnet de vacunacion","1498","226",null);
+insert into ingreso values(4, "31/11/2021","1","2",null,"4551","774",true);
+insert into ingreso values(5, "5/11/2021","SACAR PULGAS","1236","226",true);
+insert into ingreso values(6, "15/11/2021","arayanes 1205","DESPSRACITAR",true);
+insert into ingreso values(7, "17/11/2021","5","10","675","774",true);
+insert into ingreso values(8, "15/11/2021","3","6","778","888",true);
+insert into ingreso values(10, "11/12/2021"," 2","3",NULL,"3212","774",TRUE);
