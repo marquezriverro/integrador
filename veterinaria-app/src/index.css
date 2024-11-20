@@ -1,0 +1,177 @@
+/* Variables de colores */
+:root {
+  --primary-color: #681eae;
+  --secondary-color: #8a2be2;
+  --background-color: #f0e6e6;
+  --menu-background: #bea0db;
+  --text-color: #555;
+  --text-alert: #f5f061;
+}
+
+/* Estilos globales */
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100%;
+  padding-bottom: 5rem;
+}
+
+/* Encabezados */
+
+.top-bar {
+  background-color: var(--menu-background);
+  contain: content;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 4rem;
+  padding-top: 6rem;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+h1,
+h2 {
+  color: var(--primary-color);
+  padding-top: 4rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+
+.subtitulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  font-size: 2.6rem;
+  font-weight: 600;
+}
+
+.nombre-veterinaria {
+  font-family: 'Rampart One', cursive;
+  font-size: 6rem;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 40px;
+}
+
+/* Listas de citas */
+.lista-citas .media {
+  border-bottom: 1px solid #e1e1e1;
+  padding-bottom: 3rem;
+}
+
+.lista-citas .media:last-of-type {
+  border-bottom: 0;
+}
+
+/* Estilos para texto y botones en citas */
+.lista-citas .media-body p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.lista-citas .media-body button {
+  margin-top: 1rem !important;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.lista-citas .media-body button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Etiquetas */
+.label {
+  color: var(--primary-color);
+}
+
+/* Estilos para inputs de fecha y hora */
+input[type="date"],
+input[type="time"] {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+/* Estilos para citas */
+.cita {
+  padding: 2rem;
+  background: white;
+  border-bottom: 1px solid #e1e1e1;
+  color: var(--text-color);
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.cita:hover {
+  transform: translateY(-3px);
+}
+
+.cita p {
+  font-weight: bold;
+  margin-bottom: .8rem;
+}
+
+.cita p span {
+  font-weight: normal;
+}
+
+.cita:first-of-type {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.cita:last-of-type {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Botón de eliminar */
+button {
+  background-color: var(--menu-background);
+    color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1.5rem;
+  }
+
+
+.alerta-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  color: var(--text-alert);
+  padding: 0.5rem;
+  margin: 1.5rem auto;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
