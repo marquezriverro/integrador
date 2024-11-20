@@ -24,7 +24,7 @@ const tratamientoSchema = new Schema({
         enum:['Baja','Media','Alta']
     },
     paciente:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:Mysql.Schema.Types.ObjectId,
         ref:'Paciente'
     }
 },{
