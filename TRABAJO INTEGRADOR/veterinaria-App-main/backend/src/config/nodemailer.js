@@ -7,8 +7,8 @@ let transporter = nodemailer.createTransport({
     host: process.env.HOST_MAILTRAP || 'smtp.google.com',
     port: process.env.PORT_MAILTRAP || 465,
     auth: {
-        user: process.env.USER_MAILTRAP || 'bryand9970@gmail.com',
-        pass: process.env.PASS_MAILTRAP || 'ylbtukhjxjttvaxu',
+        user: process.env.USER_MAILTRAP || 'yaninamarquez090@gmail.com',
+        pass: process.env.PASS_MAILTRAP || 'yanina3715',
     }
 });
 
